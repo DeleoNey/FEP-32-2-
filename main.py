@@ -87,3 +87,12 @@ plt.plot(t, R_inst, label="R_inst(t) - виторг")
 plt.legend()
 plt.grid()
 plt.savefig("R_inst(t).png")
+
+#Виділення піків продажів + висновок - Коваль Станіслав
+
+peak_threshold = np.percentile(S, 85)
+peak_times = data[data['S'] >= peak_threshold]
+
+print("\nІнтервали пікових продажів:")
+print(peak_times.index)
+print("\n✅ Роботу завершено!")
