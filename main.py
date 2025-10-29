@@ -69,3 +69,21 @@ for k, v in errors.items():
 
 print("\nQ (quad) =", Q_quad)
 print("R (quad) =", R_quad)
+
+#Побудова графіків S(t), p(t), R_inst(t) - Войченко Ігор
+plt.plot(t, S, label="S(t) - обсяг продажів")
+plt.legend()
+plt.grid()
+plt.savefig("S(t).png")
+
+plt.figure()
+plt.plot(t, p, label="p(t) - ціна товару")
+plt.legend()
+plt.grid()
+plt.savefig("p(t).png")
+
+plt.figure()
+plt.plot(t, R_inst, label="R_inst(t) - виторг")
+plt.legend()
+plt.grid()
+plt.savefig("R_inst(t).png")
