@@ -28,3 +28,11 @@ R_inst = p * S  # миттєвий виторг
 
 t = data['t'].values
 t0, t1 = t.min(), t.max()
+
+# Інтерполяція функцій S(t) та p(t) - Шаповалов Олександр
+
+S_interp = interp1d(t, S, kind='cubic')
+p_interp = interp1d(t, p, kind='cubic')
+R_interp = lambda x: p_interp(x) * S_interp(x)
+
+
