@@ -49,3 +49,23 @@ R_simp = simpson(R_inst, t)
 # Точніше значення через quad для порівняння - Олег Стецик
 Q_quad, _ = quad(lambda x: S_interp(x), t0, t1)
 R_quad, _ = quad(lambda x: R_interp(x), t0, t1)
+
+# оцінка похибок - Катело Настя
+def err(true, approx):
+    return abs(true - approx), abs(true - approx) / true * 100
+
+errors = {
+    "Q_rect": err(Q_quad, Q_rect),
+    "Q_trap": err(Q_quad, Q_trap),
+    "Q_simp": err(Q_quad, Q_simp),
+    "R_rect": err(R_quad, R_rect),
+    "R_trap": err(R_quad, R_trap),
+    "R_simp": err(R_quad, R_simp)
+}
+
+print("\nАбсолютні та відносні похибки:")
+for k, v in errors.items():
+    print(f"{k}: abs={v[0]:.4f}, rel={v[1]:.4f}%")
+
+print("\nQ (quad) =", Q_quad)
+print("R (quad) =", R_quad)
