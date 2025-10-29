@@ -40,4 +40,9 @@ R_interp = lambda x: p_interp(x) * S_interp(x)
 Q_rect = np.sum(S[:-1] * np.diff(t))
 R_rect = np.sum(R_inst[:-1] * np.diff(t))
 
+#  Метод трапецій і Сімпсона
+Q_trap = trapezoid(S, t)
+R_trap = trapezoid(R_inst, t)
 
+Q_simp = simpson(S, t)
+R_simp = simpson(R_inst, t)
