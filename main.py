@@ -35,4 +35,9 @@ S_interp = interp1d(t, S, kind='cubic')
 p_interp = interp1d(t, p, kind='cubic')
 R_interp = lambda x: p_interp(x) * S_interp(x)
 
+# Обчислення інтегралів методами прямої формули - Припотнюк Влад
+
+Q_rect = np.sum(S[:-1] * np.diff(t))
+R_rect = np.sum(R_inst[:-1] * np.diff(t))
+
 
