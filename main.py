@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.interpolate import interp1d
 from scipy.integrate import quad, simpson, trapezoid
-
+#2 Новодворський Роман
 df = pd.read_csv("../index_1.csv")
 df['datetime'] = pd.to_datetime(df['datetime'], errors='coerce')
 df = df.dropna(subset=['datetime'])
@@ -46,3 +46,6 @@ R_trap = trapezoid(R_inst, t)
 
 Q_simp = simpson(S, t)
 R_simp = simpson(R_inst, t)
+# Точніше значення через quad для порівняння - Олег Стецик
+Q_quad, _ = quad(lambda x: S_interp(x), t0, t1)
+R_quad, _ = quad(lambda x: R_interp(x), t0, t1)
