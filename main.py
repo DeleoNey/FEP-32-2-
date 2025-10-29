@@ -15,3 +15,16 @@ data = df.groupby(df['datetime']).agg(
     Revenue=('money', 'sum')
 )
 data['price'] = data['Revenue'] / data['S']
+
+#3 - Формування часової сітки - Юра Марчак
+
+data = data.sort_index()
+t = (data.index - data.index[0]).total_seconds() / 3600  # години з початку
+data['t'] = t.values
+
+S = data['S'].values
+p = data['price'].values
+R_inst = p * S  # миттєвий виторг
+
+t = data['t'].values
+t0, t1 = t.min(), t.max()
